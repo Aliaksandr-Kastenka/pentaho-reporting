@@ -1312,7 +1312,10 @@ public abstract class AbstractReportProcessor implements ReportProcessor
                 {
                   logger.debug("Print: Try to generate new fallback state after commit count reached: " + state.getProcessKey());
                 }
-                realFallbackState = state.deriveForPagebreak();
+                if ( state.deriveForPagebreak().getProcessKey().getStateCode() != 64 ) {
+                  //stateCode is not ITEMS_FINISHED
+                  realFallbackState = state.deriveForPagebreak();
+                }
               }
               else
               {
