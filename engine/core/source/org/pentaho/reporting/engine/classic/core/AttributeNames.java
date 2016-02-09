@@ -201,6 +201,7 @@ public class AttributeNames {
 
     public static final String IMAGE_MAP = "image-map";
     public static final String DATA_CACHE = "data-cache";
+    public static final String CONTENT_CACHE_KEY = "content-cache-key";
 
     public static final String STYLE_SHEET_REFERENCE = "style-sheet-reference";
     public static final String STYLE_SHEET = "style-sheet";

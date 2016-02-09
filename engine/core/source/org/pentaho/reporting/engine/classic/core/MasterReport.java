@@ -610,6 +610,14 @@ public class MasterReport extends AbstractReportDefinition {
     setAttribute( AttributeNames.Core.NAMESPACE, AttributeNames.Core.STYLE_SHEET_REFERENCE, styleSheetReference );
   }
 
+  public String getContentCacheKey() {
+    return (String) getAttribute( AttributeNames.Core.NAMESPACE, AttributeNames.Core.CONTENT_CACHE_KEY );
+  }
+
+  public void setContentCacheKey( final String contentCacheKey ) {
+    setAttribute( AttributeNames.Core.NAMESPACE, AttributeNames.Core.CONTENT_CACHE_KEY, contentCacheKey );
+  }
+
   public boolean isStrictLegacyMode() {
     return "true".equals( getReportConfiguration().getConfigProperty(
         "org.pentaho.reporting.engine.classic.core.legacy.StrictCompatibility" ) );
