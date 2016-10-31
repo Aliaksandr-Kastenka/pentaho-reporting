@@ -16,6 +16,8 @@
  */
 
 package org.pentaho.reporting.engine.classic.core;
+import org.pentaho.reporting.engine.classic.core.parameters.DefaultParameterContext;
+import org.pentaho.reporting.engine.classic.core.parameters.ParameterDefinitionEntry;
 
 /**
  * A report definition. This the working copy of the JFreeReport object. During the report processing not all properties
@@ -31,7 +33,7 @@ public interface ReportDefinition extends ReportElement {
    */
   public String getQuery();
 
-  public int getQueryLimit();
+  public int getQueryLimit(DefaultParameterContext context, ParameterDefinitionEntry entry);
 
   public int getQueryTimeout();
 

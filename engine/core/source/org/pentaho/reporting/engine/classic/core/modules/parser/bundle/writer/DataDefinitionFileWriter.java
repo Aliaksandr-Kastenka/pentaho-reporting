@@ -88,7 +88,7 @@ public class DataDefinitionFileWriter implements BundleWriterHandler {
     final AbstractReportDefinition report = contentState.getReport();
 
     final String query = report.getQuery();
-    final int queryLimit = report.getQueryLimit();
+    final int queryLimit = report.getQueryLimit(null, null);
     final int timeout = report.getQueryTimeout();
     final AttributeList dataSourceAtts = new AttributeList();
     if ( query != null ) {

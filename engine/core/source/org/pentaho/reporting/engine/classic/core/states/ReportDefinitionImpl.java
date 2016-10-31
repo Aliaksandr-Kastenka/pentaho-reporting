@@ -41,6 +41,8 @@ import org.pentaho.reporting.engine.classic.core.Watermark;
 import org.pentaho.reporting.engine.classic.core.filter.types.bands.MasterReportType;
 import org.pentaho.reporting.engine.classic.core.function.Expression;
 import org.pentaho.reporting.engine.classic.core.style.StyleKey;
+import org.pentaho.reporting.engine.classic.core.parameters.DefaultParameterContext;
+import org.pentaho.reporting.engine.classic.core.parameters.ParameterDefinitionEntry;
 
 import java.util.Map;
 import java.util.Set;
@@ -152,14 +154,14 @@ public class ReportDefinitionImpl extends Section implements ReportDefinition {
     registerAsChild( pageFooter );
     registerAsChild( watermark );
 
-    this.queryLimit = report.getQueryLimit();
+    this.queryLimit = report.getQueryLimit(null, null);
     this.queryTimeout = report.getQueryTimeout();
 
     setName( report.getName() );
     setChangeTracker( report.getChangeTracker() );
   }
 
-  public int getQueryLimit() {
+  public int getQueryLimit(DefaultParameterContext context, ParameterDefinitionEntry entry) {
     return queryLimit;
   }
 

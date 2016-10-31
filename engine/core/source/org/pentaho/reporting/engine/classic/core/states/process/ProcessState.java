@@ -295,7 +295,7 @@ public class ProcessState implements ReportState {
     this.dataFactoryManager.store( functionStorageKey, dataFactory, true );
     // eval query, query-limit and query-timeout
     this.flowController = flowController;
-    final Integer queryLimitDefault = IntegerCache.getInteger( processedReport.getQueryLimit() );
+    final Integer queryLimitDefault = IntegerCache.getInteger( processedReport.getQueryLimit(null, null) );
     final Integer queryTimeoutDefault = IntegerCache.getInteger( processedReport.getQueryTimeout() );
 
     final String queryDefined = designtime ? "design-time-query" : processedReport.getQuery();
@@ -537,7 +537,7 @@ public class ProcessState implements ReportState {
 
       // eval query, query-limit and query-timeout
       this.flowController = postPreProcessingFlowController.performInitSubreport( dataFactory, inputMappings, resourceBundleFactory );
-      final Integer queryLimitDefault = IntegerCache.getInteger( preDataSubReport.getQueryLimit() );
+      final Integer queryLimitDefault = IntegerCache.getInteger( preDataSubReport.getQueryLimit(null, null) );
       final Integer queryTimeoutDefault = IntegerCache.getInteger( preDataSubReport.getQueryTimeout() );
 
       final Object queryRaw =

@@ -38,7 +38,7 @@ public class MasterReportTest extends TestCase {
     report.setQueryLimit( 10 );
     report.setQueryTimeout( 10 );
     final MasterReport element = (MasterReport) report.derive();
-    assertEquals( 10, element.getQueryLimit() );
+    assertEquals( 10, element.getQueryLimit(null, null) );
     assertEquals( 10, element.getQueryTimeout() );
   }
 

@@ -29,7 +29,9 @@ import org.pentaho.reporting.engine.classic.core.filter.types.bands.DetailsFoote
 import org.pentaho.reporting.engine.classic.core.filter.types.bands.DetailsHeaderType;
 import org.pentaho.reporting.engine.classic.core.function.Expression;
 import org.pentaho.reporting.engine.classic.core.function.ExpressionCollection;
+import org.pentaho.reporting.engine.classic.core.function.GenericExpressionRuntime;
 import org.pentaho.reporting.engine.classic.core.function.StructureFunction;
+import org.pentaho.reporting.engine.classic.core.parameters.DefaultParameterContext;
 import org.pentaho.reporting.engine.classic.core.style.ElementStyleSheet;
 import org.pentaho.reporting.engine.classic.core.style.ReportDefaultStyleSheet;
 import org.pentaho.reporting.engine.classic.core.util.InstanceID;
@@ -38,6 +40,11 @@ import org.pentaho.reporting.engine.classic.core.wizard.DataSchemaDefinition;
 import org.pentaho.reporting.engine.classic.core.wizard.DefaultDataSchemaDefinition;
 import org.pentaho.reporting.libraries.resourceloader.ResourceKey;
 import org.pentaho.reporting.libraries.resourceloader.ResourceManager;
+import org.pentaho.reporting.engine.classic.core.parameters.ParameterDefinitionEntry;
+import org.pentaho.reporting.engine.classic.core.parameters.FormulaParameterEvaluator;
+import org.pentaho.reporting.engine.classic.core.parameters.ParameterExpressionRuntime;
+import org.pentaho.reporting.engine.classic.core.ReportProcessingException;
+import org.pentaho.reporting.engine.classic.core.function.FormulaExpression;
 
 /**
  * The AbstractReportDefinition serves as base-implementation for both the SubReport and the global JFreeReport
@@ -731,13 +738,25 @@ public abstract class AbstractReportDefinition extends Section implements Report
         .getInteger( queryTimeout ) );
   }
 
-  public int getQueryLimit() {
-    final Object queryLimitText = getAttribute( AttributeNames.Internal.NAMESPACE, AttributeNames.Internal.QUERY_LIMIT );
-    if ( queryLimitText instanceof Number ) {
-      final Number n = (Number) queryLimitText;
-      return n.intValue();
-    }
-    return -1;
+  public int getQueryLimit( DefaultParameterContext context, ParameterDefinitionEntry definitionEntry ) {
+	    final Object queryLimitText =
+	    	      getAttribute( AttributeNames.Internal.NAMESPACE, AttributeNames.Internal.QUERY_LIMIT );
+	    	    final Expression expression =
+	    	      getAttributeExpression( AttributeNames.Internal.NAMESPACE, AttributeNames.Internal.QUERY_LIMIT );
+	    	    if ( null != expression ) {
+	    	      expression.setRuntime( new GenericExpressionRuntime() );
+	    	      try {
+	    	      Object testVal = FormulaParameterEvaluator.computeValue(
+	    	                new ParameterExpressionRuntime( context, context.getParameterData() ), ((FormulaExpression) expression).getFormula(), null, definitionEntry,
+	    	                "4" );
+	    	      } catch (ReportProcessingException e) {}
+	    	      final Object value = expression.getValue();
+	    	      if ( value != null && value instanceof Number ) {
+	    	        final Number n = (Number) value;
+	    	        return n.intValue();
+	    	      }
+	    	    }
+	    	    return -1;
   }
 
   public void setQueryLimit( final int queryLimit ) {
