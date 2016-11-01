@@ -17,6 +17,8 @@
 
 package org.pentaho.reporting.engine.classic.core;
 
+import org.pentaho.reporting.engine.classic.core.util.ReportParameterValues;
+
 /**
  * A report definition. This the working copy of the JFreeReport object. During the report processing not all properties
  * of the original JFreeReport object will be availble.
@@ -31,7 +33,7 @@ public interface ReportDefinition extends ReportElement {
    */
   public String getQuery();
 
-  public int getQueryLimit();
+  public int getQueryLimit(ReportParameterValues parameterValues);
 
   public int getQueryTimeout();
 

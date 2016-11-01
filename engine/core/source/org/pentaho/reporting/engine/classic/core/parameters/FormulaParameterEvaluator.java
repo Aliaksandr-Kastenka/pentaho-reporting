@@ -114,7 +114,7 @@ public class FormulaParameterEvaluator {
       }
 
       return defaultValue;
-    } else if ( entry.getValueType().isInstance( value ) ) {
+    } else if ( null == entry || entry.getValueType().isInstance( value ) ) {
       return value;
     } else if ( value instanceof ErrorValue ) {
       final ErrorValue errorValue = (ErrorValue) value;

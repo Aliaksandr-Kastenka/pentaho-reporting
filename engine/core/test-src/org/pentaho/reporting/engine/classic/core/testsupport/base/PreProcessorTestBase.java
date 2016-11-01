@@ -70,7 +70,7 @@ public abstract class PreProcessorTestBase {
 
     try {
       final DefaultFlowController postQueryFlowController =
-          flowController.performQuery( dataFactory, report.getQuery(), report.getQueryLimit(),
+          flowController.performQuery( dataFactory, report.getQuery(), report.getQueryLimit( null ),
               report.getQueryTimeout(), flowController.getMasterRow().getResourceBundleFactory(), Collections.<SortConstraint>emptyList() );
 
       return processor.performPreProcessing( report, postQueryFlowController );
