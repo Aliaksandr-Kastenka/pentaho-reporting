@@ -32,6 +32,7 @@ import org.pentaho.reporting.engine.classic.core.DataRow;
 import org.pentaho.reporting.engine.classic.core.function.AbstractExpression;
 import org.pentaho.reporting.engine.classic.core.function.Expression;
 import org.pentaho.reporting.engine.classic.core.function.ExpressionRuntime;
+import org.pentaho.reporting.engine.classic.core.function.FormulaExpression;
 import org.pentaho.reporting.engine.classic.core.function.ProcessingContext;
 import org.pentaho.reporting.engine.classic.core.function.WrapperExpressionRuntime;
 import org.pentaho.reporting.engine.classic.core.states.LayoutProcess;
@@ -55,6 +56,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -124,6 +126,8 @@ public abstract class AbstractChartExpression extends AbstractExpression impleme
   private String tooltipFormula;
   private String urlFormula;
 
+  Map<String, Expression> propertyExpressions;
+
   protected AbstractChartExpression() {
     seriesColors = new ArrayList<String>();
     seriesColors.add( "#ff6600" );
@@ -168,6 +172,7 @@ public abstract class AbstractChartExpression extends AbstractExpression impleme
     chartCache = new HashMap<Object, JFreeChart>();
     plotBackgroundAlpha = 1;
     plotForegroundAlpha = 1;
+    propertyExpressions = new HashMap<String, Expression>();
   }
 
   public Font getItemLabelFont() {
@@ -466,6 +471,21 @@ public abstract class AbstractChartExpression extends AbstractExpression impleme
 
   public Object getValue() {
     try {
+      Iterator it = propertyExpressions.entrySet().iterator();
+      while ( it.hasNext() ) {
+        Map.Entry pair = ( Map.Entry ) it.next();
+        FormulaExpression formulaExpression = (FormulaExpression) pair.getValue();
+        formulaExpression.setRuntime( getRuntime() );
+        final Object o = formulaExpression.getValue();
+
+        if ( "titleText".equals( pair.getKey() ) ) {
+          setTitleText( String.valueOf( o ) );
+        } else if ( "titleFont".equals( pair.getKey() ) ) {
+          setTitleFont( String.valueOf( o ) );
+        } /* else if ... */
+        
+        it.remove();
+      }
       final Object maybeCollector = getDataRow().get( getDataSource() );
       final Dataset dataset;
       final Object cacheKey;
