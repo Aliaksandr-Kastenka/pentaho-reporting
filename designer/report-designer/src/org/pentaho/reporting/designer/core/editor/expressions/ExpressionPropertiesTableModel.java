@@ -282,7 +282,8 @@ public class ExpressionPropertiesTableModel
   }
 
   public int getColumnCount() {
-    return 2;
+    //return 2;
+      return 3;
   }
 
   public String getColumnName( final int column ) {
@@ -291,6 +292,8 @@ public class ExpressionPropertiesTableModel
         return EditorExpressionsMessages.getString( "ExpressionPropertiesTableModel.NameColumn" );
       case 1:
         return EditorExpressionsMessages.getString( "ExpressionPropertiesTableModel.ValueColumn" );
+      case 2:
+          return "Expr";
       default:
         throw new IllegalArgumentException();
     }
@@ -307,6 +310,8 @@ public class ExpressionPropertiesTableModel
         return new GroupedName( metaData );
       case 1:
         return computeFullValue( metaData );
+      case 2:
+          return null; //needs to be implemented
       default:
         throw new IndexOutOfBoundsException();
     }
@@ -323,6 +328,8 @@ public class ExpressionPropertiesTableModel
         return false;
       case 1:
         return true;
+      case 2:
+          return true;
       default:
         throw new IndexOutOfBoundsException();
     }
@@ -352,6 +359,17 @@ public class ExpressionPropertiesTableModel
         }
         break;
       }
+      case 2: {
+          if ( aValue != null && aValue instanceof Expression == false ) {
+            return;
+          }
+          //needs to be implemented
+          /*if ( defineExpressionValue( metaData, (Expression) aValue ) ) {
+            getDataBackend().clearExpressionsCache( rowIndex );
+            fireTableDataChanged();
+          }*/
+          break;
+        }
       default:
         throw new IndexOutOfBoundsException();
     }
@@ -421,6 +439,8 @@ public class ExpressionPropertiesTableModel
         return GroupedName.class;
       case 1:
         return metaData.getPropertyType();
+      case 2:
+          return Expression.class;
       default:
         throw new IndexOutOfBoundsException();
     }
@@ -453,6 +473,8 @@ public class ExpressionPropertiesTableModel
           }
 
           return FastPropertyEditorManager.findEditor( metaData.getPropertyType() );
+        case 2:
+            return null;
         default:
           throw new IndexOutOfBoundsException();
       }
