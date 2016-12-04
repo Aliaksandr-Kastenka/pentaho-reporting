@@ -149,6 +149,9 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.XYZChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.ScatterPlotChartExpression"
@@ -297,6 +300,9 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.XYZChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.XYBarChartExpression"
@@ -455,6 +461,9 @@
               hidden="false"/>
     <property name="shadowYOffset" mandatory="false" preferred="false" value-role="Value" expert="false"
               hidden="false"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.XYAreaChartExpression"
@@ -606,6 +615,9 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.XYZChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.BubbleChartExpression"
@@ -759,6 +771,9 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.XYZChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.ExtendedXYLineChartExpression"
@@ -912,6 +927,9 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.XYZChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.XYAreaLineChartExpression"
@@ -1096,5 +1114,8 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.XYZChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 </meta-data>

@@ -87,6 +87,9 @@
     <property name="pieTitleFont" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="false"/>
     <property name="pieNoDataMessage" mandatory="false" preferred="false" value-role="Value" expert="false"
               hidden="false"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.PieChartExpression"
@@ -179,6 +182,9 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.PieChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.RingChartExpression"
@@ -272,6 +278,9 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.PieChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.RadarChartExpression"
@@ -359,6 +368,9 @@
     <property name="tooltipFormula" mandatory="false" preferred="false" value-role="Formula" expert="false"
               hidden="false"
               impl="org.pentaho.plugin.jfreereport.reportcharts.metadata.CategoryChartFormulaExpressionPropertyCore"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
   <expression class="org.pentaho.plugin.jfreereport.reportcharts.ThermometerChartExpression"
@@ -455,6 +467,9 @@
               propertyEditor="org.pentaho.reporting.libraries.designtime.swing.propertyeditors.ColorPropertyEditor"/>
     <property name="mercuryPaint" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="false"
               propertyEditor="org.pentaho.reporting.libraries.designtime.swing.propertyeditors.ColorPropertyEditor"/>
+    <property name="expressionMap" mandatory="false" preferred="false" value-role="Value" expert="false" hidden="true"
+              readHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyReadHandler"
+              writeHandler="org.pentaho.reporting.engine.classic.core.modules.parser.base.common.ExpressionMapPropertyWriteHandler"/>
   </expression>
 
 </meta-data>
