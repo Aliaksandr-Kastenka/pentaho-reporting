@@ -36,6 +36,7 @@ public class ExpressionPropertyMetaDataBuilder extends MetaDataBuilder<Expressio
   private Class<? extends Expression> expression;
   private Class<? extends UserDefinedExpressionPropertyReadHandler> propertyReadHandler;
   private Class<? extends ExpressionPropertyWriteHandler> propertyWriteHandler;
+  private boolean designTime;
 
   public ExpressionPropertyMetaDataBuilder() {
     this.core = new DefaultExpressionPropertyCore();
@@ -90,6 +91,11 @@ public class ExpressionPropertyMetaDataBuilder extends MetaDataBuilder<Expressio
     return self();
   }
 
+  public ExpressionPropertyMetaDataBuilder designTime( boolean v ) {
+    this.designTime = v;
+    return self();
+  }
+
   public boolean isMandatory() {
     return mandatory;
   }
@@ -100,6 +106,10 @@ public class ExpressionPropertyMetaDataBuilder extends MetaDataBuilder<Expressio
 
   public String getValueRole() {
     return valueRole;
+  }
+
+  public boolean isDesignTime() {
+    return designTime;
   }
 
   public Class<? extends PropertyEditor> getEditor() {
